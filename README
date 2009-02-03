@@ -1,0 +1,11 @@
+git-selfupdate
+==============
+
+Tired of manually downloading the sources and building git?  Too lazy to
+type three commands when you could just type one?  Don't really mind if a security violation on 
+
+$ which git-selfupdate
+~/bin/git-selfupdate
+$ git selfupdate
+Usage:  git-selfupdate version
+$ git selfupdate 1.6.1.2
