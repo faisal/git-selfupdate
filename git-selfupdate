@@ -1,0 +1,41 @@
+#!/bin/sh
+
+set -e
+
+export PREFIX=`which git | sed -e 's/\/bin\/git//'`
+
+export TMPDIR=/tmp/.git-$USER
+mkdir -p $TMPDIR
+cd $TMPDIR
+
+export VERSION=$1
+
+if [[ '' == $VERSION ]] ; then
+  /bin/echo 'Usage:  git-selfupdate version'
+  exit
+fi
+
+echo Fetching git version:  $VERSION
+
+curl -O http://kernel.org/pub/software/scm/git/git-$VERSION.tar.gz
+curl -O http://kernel.org/pub/software/scm/git/git-manpages-$VERSION.tar.gz
+
+tar -xzvf git-$VERSION.tar.gz
+cd git-$VERSION
+make configure
+./configure --prefix=$PREFIX
+make all
+
+/bin/echo 'sudoing to install.  Are you sure you want to do this?'
+
+sudo make install
+cd ..
+rm -rf git-$VERSION
+
+pushd $PREFIX/man
+  sudo tar -xzvf $TMPDIR/git-manpages-$VERSION.tar.gz
+popd
+
+cd $TMPDIR
+echo "Files remaining in $TMPDIR:"
+\ls git-*
