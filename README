@@ -2,7 +2,8 @@ git-selfupdate
 ==============
 
 Tired of manually downloading the sources and building git?  Too lazy to
-type three commands when you could just type one?  Don't really mind if a security violation on 
+type three commands when you could just type one?  Don't really mind if a
+security violation on kernel.org cascades down to your desktop?
 
 $ which git-selfupdate
 ~/bin/git-selfupdate
