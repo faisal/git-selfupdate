@@ -26,14 +26,12 @@ make configure
 ./configure --prefix=$PREFIX
 make all
 
-/bin/echo 'sudoing to install.  Are you sure you want to do this?'
-
-sudo make install
+make install
 cd ..
 rm -rf git-$VERSION
 
 pushd $PREFIX/man
-  sudo tar -xzvf $TMPDIR/git-manpages-$VERSION.tar.gz
+  tar -xzvf $TMPDIR/git-manpages-$VERSION.tar.gz
 popd
 
 cd $TMPDIR
