@@ -22,11 +22,11 @@ curl -O http://kernel.org/pub/software/scm/git/git-manpages-$VERSION.tar.gz
 
 tar -xzvf git-$VERSION.tar.gz
 cd git-$VERSION
-make configure
+make -k configure
 ./configure --prefix=$PREFIX
-make all
+make -k all
 
-make install
+make -k install
 cd ..
 rm -rf git-$VERSION
 
