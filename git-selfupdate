@@ -26,8 +26,8 @@ make configure
 ./configure --prefix=$PREFIX
 make all
 
-if [ -f /usr/local/libexec/git-core/git ] ; then
-  rm -rf /usr/local/libexec/git-core;
+if [ -e $PREFIX/libexec/git-core/git ] ; then
+  rm -rf $PREFIX/libexec/git-core;
 fi
 
 make install
