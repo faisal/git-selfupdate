@@ -15,7 +15,7 @@ if [[ '' == $VERSION ]] ; then
   exit
 fi
 
-echo Fetching git version:  $VERSION
+echo Fetching git version:  $VERSION to $PREFIX
 
 curl -O http://kernel.org/pub/software/scm/git/git-$VERSION.tar.gz
 curl -O http://kernel.org/pub/software/scm/git/git-manpages-$VERSION.tar.gz
