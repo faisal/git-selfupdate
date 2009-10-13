@@ -26,6 +26,10 @@ make -k configure
 ./configure --prefix=$PREFIX
 make -k all
 
+if [ -f /usr/local/libexec/git-core/git ] ; then
+  rm -rf /usr/local/libexe/git-core;
+fi
+
 make -k install
 cd ..
 rm -rf git-$VERSION
