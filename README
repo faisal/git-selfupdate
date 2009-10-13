@@ -8,5 +8,5 @@ security violation on kernel.org cascades down to your desktop?
 $ which git-selfupdate
 ~/bin/git-selfupdate
 $ git selfupdate
-Usage:  git-selfupdate version
-$ git selfupdate 1.6.1.2
+Usage:  [sudo] git-selfupdate version
+$ sudo git selfupdate 1.6.1.2
