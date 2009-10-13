@@ -27,7 +27,7 @@ make -k configure
 make -k all
 
 if [ -f /usr/local/libexec/git-core/git ] ; then
-  rm -rf /usr/local/libexe/git-core;
+  rm -rf /usr/local/libexec/git-core;
 fi
 
 make -k install
