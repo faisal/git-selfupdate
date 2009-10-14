@@ -22,15 +22,13 @@ curl -O http://kernel.org/pub/software/scm/git/git-manpages-$VERSION.tar.gz
 
 tar -xzf git-$VERSION.tar.gz
 cd git-$VERSION
-make configure
-./configure --prefix=$PREFIX
-make all
+make prefix=$PREFIX all
 
 if [ -e $PREFIX/libexec/git-core/git ] ; then
   rm -rf $PREFIX/libexec/git-core;
 fi
 
-make install
+make prefix=$PREFIX install
 cd ..
 rm -rf git-$VERSION
 
