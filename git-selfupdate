@@ -2,7 +2,7 @@
 
 set -e
 
-export PREFIX=`which git | sed -e 's/\/bin\/git//'`
+export PREFIX=`which git | sed -e 's/\/bin\/git//' | sed -e 's/\/libexec.*//'`
 
 export TMPDIR=/tmp/.git-$USER
 mkdir -p $TMPDIR
