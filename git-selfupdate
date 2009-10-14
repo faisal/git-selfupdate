@@ -20,7 +20,7 @@ echo Fetching git version:  $VERSION to $PREFIX
 curl -O http://kernel.org/pub/software/scm/git/git-$VERSION.tar.gz
 curl -O http://kernel.org/pub/software/scm/git/git-manpages-$VERSION.tar.gz
 
-tar -xzvf git-$VERSION.tar.gz
+tar -xzf git-$VERSION.tar.gz
 cd git-$VERSION
 make configure
 ./configure --prefix=$PREFIX
@@ -35,7 +35,7 @@ cd ..
 rm -rf git-$VERSION
 
 pushd $PREFIX/man
-  tar -xzvf $TMPDIR/git-manpages-$VERSION.tar.gz
+  tar -xzf $TMPDIR/git-manpages-$VERSION.tar.gz
 popd
 
 cd $TMPDIR
