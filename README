@@ -1,12 +1,10 @@
 git-selfupdate
 ==============
 
-Tired of manually downloading the sources and building git?  Too lazy to
-type three commands when you could just type one?  Don't really mind if a
-security violation on kernel.org cascades down to your desktop?
+'git selfupdate' is builds a specified version of git and installs the man pages. It isn't particularly fancy, but it can save some time and effort (especially on the Mac).
 
 $ which git-selfupdate
 ~/bin/git-selfupdate
 $ git selfupdate
 Usage:  [sudo] git-selfupdate version
-$ sudo git selfupdate 1.6.1.2
+$ sudo git selfupdate 1.6.5.1
