@@ -11,7 +11,7 @@ cd $TMPDIR
 export VERSION=$1
 
 if [[ '' == $VERSION ]] ; then
-  /bin/echo 'Usage:  git-selfupdate version'
+  /bin/echo 'Usage: [sudo] git selfupdate version'
   exit
 fi
 
