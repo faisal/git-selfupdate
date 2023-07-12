@@ -1,4 +1,4 @@
-git-selfupdate
+Git-selfupdate
 ==============
 
 'git selfupdate' builds a specified version of git and installs the man pages. It isn't particularly fancy, but it can save some time and effort (especially on the Mac).
