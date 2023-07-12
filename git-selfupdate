@@ -2,40 +2,43 @@
 
 set -e
 
-export PREFIX=`which git | sed -e 's/\/bin\/git//' | sed -e 's/\/libexec.*//'`
+export PREFIX
+PREFIX=$(command -v git | sed -e 's/\/bin\/git//' | sed -e 's/\/libexec.*//')
 
-export TMPDIR=/tmp/.git-$USER
-mkdir -p $TMPDIR
-cd $TMPDIR
+export TMPDIR
+TMPDIR=/tmp/.git-${USER}
+mkdir -p "${TMPDIR}"
+cd "${TMPDIR}"
 
-export VERSION=$1
+export VERSION
+VERSION="${1}"
 
-if [[ '' == $VERSION ]] ; then
+if [ '' = "${VERSION}" ] ; then
   /bin/echo 'Usage: [sudo] git selfupdate version'
   exit
 fi
 
-echo Fetching git version:  $VERSION to $PREFIX
+echo "Fetching git version:  ${VERSION} to ${PREFIX}"
 
-curl -O http://kernel.org/pub/software/scm/git/git-$VERSION.tar.gz
-curl -O http://kernel.org/pub/software/scm/git/git-manpages-$VERSION.tar.gz
+curl -O "http://kernel.org/pub/software/scm/git/git-${VERSION}.tar.gz"
+curl -O "http://kernel.org/pub/software/scm/git/git-manpages-${VERSION}.tar.gz"
 
-tar -xzf git-$VERSION.tar.gz
-cd git-$VERSION
-make prefix=$PREFIX all
+tar -xzf "git-${VERSION}".tar.gz
+cd "git-${VERSION}"
+make prefix="${PREFIX}" all
 
-if [ -e $PREFIX/libexec/git-core/git ] ; then
-  rm -rf $PREFIX/libexec/git-core;
+if [ -e "${PREFIX}/libexec/git-core/git" ] ; then
+  rm -rf "${PREFIX}/libexec/git-core";
 fi
 
-make prefix=$PREFIX install
+make prefix="${PREFIX}" install
 cd ..
-rm -rf git-$VERSION
+rm -rf "git-${VERSION}"
 
-pushd $PREFIX/man
-  tar -xzf $TMPDIR/git-manpages-$VERSION.tar.gz
-popd
+(
+  cd "${PREFIX}/man"
+  tar -xzf "${TMPDIR}/git-manpages-${VERSION}.tar.gz"
+)
 
-cd $TMPDIR
-echo "Files remaining in $TMPDIR:"
-\ls git-*
+echo "Files remaining in ${TMPDIR}:"
+\ls "${TMPDIR}/git-*"
